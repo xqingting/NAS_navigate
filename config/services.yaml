@@ -11,7 +11,7 @@
     - 1Panel:
         href: http://192.168.6.192:10086/entrance
         description: Linux 服务器管理面板
-        icon: panel
+        icon: 1panel
         siteMonitor: http://192.168.6.192:10086
 
     - Home Assistant:
@@ -26,12 +26,7 @@
         description: BT / PT 下载管理
         icon: qbittorrent
         siteMonitor: http://192.168.6.192:8181
-
-    - 迅雷下载:
-        href: http://192.168.6.192:2345
-        description: 迅雷远程下载
-        icon: thunder
-        siteMonitor: http://192.168.6.192:2345
+        type: qbittorrent
 
     - 夸克自动保存:
         href: http://192.168.6.192:5005
@@ -62,7 +57,7 @@
     - AutoBangumi:
         href: http://192.168.6.192:17892
         description: 番剧自动追更下载（AutoBangumi）
-        icon: anime
+        icon: autobangumi
         siteMonitor: http://192.168.6.192:17892
 
     - 青龙面板:
@@ -74,7 +69,7 @@
     - QD 签到:
         href: http://192.168.6.192:16007
         description: 各站点自动签到（QD）
-        icon: bookmark
+        icon: qd
         siteMonitor: http://192.168.6.192:16007
 
     # douban-backup-service 当前未暴露端口，属于纯后台任务，这里不做导航入口
@@ -83,18 +78,18 @@
     - ASF:
         href: http://192.168.6.192:1242
         description: Steam 挂卡 / ASF 面板
-        icon: steam
+        icon: asf
         siteMonitor: http://192.168.6.192:1242
 
     - OpenList:
         href: http://192.168.6.192:5244
         description: 文件索引 / 网盘（OpenList）
-        icon: folder-shared
+        icon: openlist
         siteMonitor: http://192.168.6.192:5244
 
 - 网络 & 代理:
     - Mihomo:
         href: http://192.168.6.192:9090/ui/#/proxies
         description: 网络代理面板（Mihomo）
-        icon: proxy
+        icon: mihomo
         siteMonitor: http://192.168.6.192:9090

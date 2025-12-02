@@ -6,6 +6,7 @@ import fastifyStatic from "@fastify/static";
 import { CLIENT_DIST, HOST, PORT, SERVICES_PATH } from "./config";
 import { checkHealth, isHttpUrl } from "./health";
 import { loadServices } from "./services";
+import { getQBittorrentStatus } from "./qbittorrent";
 import { HealthMethod } from "./types";
 
 const server = Fastify({ logger: true });
@@ -54,6 +55,40 @@ server.get("/api/health", async (request, reply) => {
     ...result,
   });
 });
+
+// New qBittorrent status API
+server.get("/api/qbittorrent/status", async (request, reply) => {
+  const query = request.query as { baseUrl?: string };
+  if (!query.baseUrl) {
+    reply.code(400).send({ error: "缺少 baseUrl 参数" });
+    return;
+  }
+
+  let decodedUrl = query.baseUrl;
+  try {
+    decodedUrl = decodeURIComponent(query.baseUrl);
+  } catch (error) {
+    // keep original when decode fails
+  }
+  
+  decodedUrl = decodedUrl.trim();
+  if (!isHttpUrl(decodedUrl)) {
+    reply.code(400).send({ error: "baseUrl 仅支持 http/https 地址" });
+    return;
+  }
+
+  try {
+    const status = await getQBittorrentStatus(decodedUrl);
+    reply.send(status);
+  } catch (error) {
+    server.log.error(error);
+    reply.code(500).send({
+      error: "无法获取 qBittorrent 状态",
+      detail: error instanceof Error ? error.message : String(error),
+    });
+  }
+});
+
 
 server.register(fastifyStatic, { root: CLIENT_DIST, prefix: "/" });
 

@@ -36,6 +36,7 @@ const normalizeService = (value: unknown): ServiceItem | null => {
   const icon = typeof details.icon === "string" ? details.icon : undefined;
   const siteMonitor =
     typeof details.siteMonitor === "string" ? details.siteMonitor : undefined;
+  const type = typeof details.type === "string" ? details.type : undefined; // Allow service type
 
   return {
     name: name.trim(),
@@ -43,6 +44,7 @@ const normalizeService = (value: unknown): ServiceItem | null => {
     description,
     icon,
     siteMonitor,
+    type, // Include type in the returned object
   };
 };
 
