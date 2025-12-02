@@ -1,0 +1,100 @@
+# NAS 导航页面配置（services.yaml）
+# 缩进统一使用 2 个空格
+
+- NAS 面板 & 管理:
+    - CasaOS:
+        href: http://192.168.6.192/#/ 
+        description: NAS 主面板（CasaOS）
+        icon: casaos
+        siteMonitor: http://192.168.6.192
+
+    - 1Panel:
+        href: http://192.168.6.192:10086/entrance
+        description: Linux 服务器管理面板
+        icon: panel
+        siteMonitor: http://192.168.6.192:10086
+
+    - Home Assistant:
+        href: http://192.168.6.192:8123/lovelace
+        description: 智能家居中控（Home Assistant）
+        icon: home-assistant
+        siteMonitor: http://192.168.6.192:8123
+
+- 下载 & 同步:
+    - qBittorrent:
+        href: http://192.168.6.192:8181
+        description: BT / PT 下载管理
+        icon: qbittorrent
+        siteMonitor: http://192.168.6.192:8181
+
+    - 迅雷下载:
+        href: http://192.168.6.192:2345
+        description: 迅雷远程下载
+        icon: thunder
+        siteMonitor: http://192.168.6.192:2345
+
+    - 夸克自动保存:
+        href: http://192.168.6.192:5005
+        description: 夸克网盘自动转存
+        icon: quark
+        siteMonitor: http://192.168.6.192:5005
+
+    - iCloud 相册同步:
+        href: http://192.168.6.192:8090
+        description: iCloud 相册同步（icloudpd）
+        icon: icloud
+        siteMonitor: http://192.168.6.192:8090
+
+- 影音 & 阅读:
+    - Emby:
+        href: http://192.168.6.192:8096
+        description: 影音媒体库（Emby）
+        icon: emby
+        siteMonitor: http://192.168.6.192:8096
+
+    - Komga:
+        href: http://192.168.6.192:25600
+        description: 漫画 / 书籍管理（Komga）
+        icon: komga
+        siteMonitor: http://192.168.6.192:25600
+
+- 自动化 & 任务:
+    - AutoBangumi:
+        href: http://192.168.6.192:17892
+        description: 番剧自动追更下载（AutoBangumi）
+        icon: anime
+        siteMonitor: http://192.168.6.192:17892
+
+    - 青龙面板:
+        href: http://192.168.6.192:5700
+        description: 定时任务 / JD 等脚本管理（Qinglong）
+        icon: qinglong
+        siteMonitor: http://192.168.6.192:5700
+
+    - QD 签到:
+        href: http://192.168.6.192:16007
+        description: 各站点自动签到（QD）
+        icon: bookmark
+        siteMonitor: http://192.168.6.192:16007
+
+    # douban-backup-service 当前未暴露端口，属于纯后台任务，这里不做导航入口
+
+- 工具 & 其它:
+    - ASF:
+        href: http://192.168.6.192:1242
+        description: Steam 挂卡 / ASF 面板
+        icon: steam
+        siteMonitor: http://192.168.6.192:1242
+
+    - OpenList:
+        href: http://192.168.6.192:5244
+        description: 文件索引 / 网盘（OpenList）
+        icon: folder-shared
+        siteMonitor: http://192.168.6.192:5244
+
+- 网络 & 代理:
+    - Mihomo:
+        href: http://192.168.6.192:9090/ui/#/proxies
+        description: 网络代理面板（Mihomo）
+        icon: proxy
+        siteMonitor: http://192.168.6.192:9090
