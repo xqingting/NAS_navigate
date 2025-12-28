@@ -31,3 +31,11 @@ export const fetchHealth = async (url: string): Promise<HealthResponse> => {
 
   return (await response.json()) as HealthResponse;
 };
+
+export const fetchLogPreview = async (logId: string): Promise<{ content: string }> => {
+  const response = await fetch(`${API_BASE_URL}/log-preview?logId=${encodeURIComponent(logId)}`);
+  if (!response.ok) {
+    throw new Error("加载日志预览失败");
+  }
+  return (await response.json()) as { content: string };
+};

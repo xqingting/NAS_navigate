@@ -9,6 +9,8 @@ services:
     volumes:
       # 映射配置文件，方便在宿主机修改
       - ./config/services.yaml:/app/config/services.yaml
+      # 挂载 rclone 日志目录，用于故障诊断
+      - /mnt/Storage1/rclone/logs:/app/logs/rclone:ro
       # 挂载宿主机系统目录，用于系统监控 (CPU/内存/温度)
       - /proc:/proc:host
       - /sys:/sys:host

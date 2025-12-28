@@ -32,10 +32,10 @@
         icon: icloud
         siteMonitor: http://192.168.6.192:8090
     - Rclone:
-        href: https://192.168.6.192:5572/
+        href: http://192.168.6.192:5572/
         description: 云存储挂载与同步管理
         icon: rclone
-        siteMonitor: https://192.168.6.192:5572/
+        siteMonitor: http://192.168.6.192:5572/
     - CloudSaver:
         href: http://192.168.6.192:8008
         description: 云盘转存

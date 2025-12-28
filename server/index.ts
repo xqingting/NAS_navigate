@@ -8,6 +8,7 @@ import { checkHealth, isHttpUrl } from "./health";
 import { loadServices } from "./services";
 import { getQBittorrentStatus } from "./qbittorrent";
 import { getSystemStatus } from "./system";
+import { getLogContent } from "./log-reader"; // Import the new log reader
 import { HealthMethod } from "./types";
 
 const server = Fastify({ logger: true });
@@ -22,6 +23,26 @@ server.get("/api/services", async (_, reply) => {
     server.log.error(error);
     reply.code(500).send({
       error: "无法读取 services.yaml",
+      detail: error instanceof Error ? error.message : String(error),
+    });
+  }
+});
+
+// New Log Preview API
+server.get("/api/log-preview", async (request, reply) => {
+  const query = request.query as { logId?: string };
+  if (!query.logId) {
+    reply.code(400).send({ error: "缺少 logId 参数" });
+    return;
+  }
+
+  try {
+    const content = await getLogContent(query.logId);
+    reply.send({ content });
+  } catch (error) {
+    server.log.error(error);
+    reply.code(500).send({
+      error: "无法读取日志文件",
       detail: error instanceof Error ? error.message : String(error),
     });
   }
