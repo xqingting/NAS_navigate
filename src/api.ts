@@ -1,6 +1,6 @@
 import { ServicesResponse } from "./types";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE || "/api";
 
 export interface HealthResponse {
   target: string;
@@ -12,7 +12,7 @@ export interface HealthResponse {
 }
 
 export const fetchServices = async (): Promise<ServicesResponse> => {
-  const response = await fetch(`${API_BASE}/api/services`);
+  const response = await fetch(`${API_BASE_URL}/services`);
   if (!response.ok) {
     throw new Error("加载服务列表失败");
   }
@@ -22,7 +22,7 @@ export const fetchServices = async (): Promise<ServicesResponse> => {
 
 export const fetchHealth = async (url: string): Promise<HealthResponse> => {
   const response = await fetch(
-    `${API_BASE}/api/health?url=${encodeURIComponent(url)}`
+    `${API_BASE_URL}/health?url=${encodeURIComponent(url)}`
   );
 
   if (!response.ok) {

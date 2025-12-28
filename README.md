@@ -41,6 +41,15 @@ dist/server           # 后端编译产物（tsc -p tsconfig.server.json）
 5. 浏览器访问 http://localhost:5173
 
 ## 构建与部署
+
+### Docker 部署（推荐，特别是 NAS）
+推荐使用新版 Docker Compose 指令（V2）：
+```bash
+docker compose up -d --build
+```
+> **注意**：如果您使用的是旧版 Docker 环境，可能需要使用 `docker-compose up -d --build`。如果提示命令未找到，请尝试带空格的 `docker compose`。
+
+### 源码部署
 ```bash
 npm run build      # 构建前后端
 npm start          # 使用 dist 产物启动（默认端口 3000）

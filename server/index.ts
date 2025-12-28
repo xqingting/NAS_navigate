@@ -7,6 +7,7 @@ import { CLIENT_DIST, HOST, PORT, SERVICES_PATH } from "./config";
 import { checkHealth, isHttpUrl } from "./health";
 import { loadServices } from "./services";
 import { getQBittorrentStatus } from "./qbittorrent";
+import { getSystemStatus } from "./system";
 import { HealthMethod } from "./types";
 
 const server = Fastify({ logger: true });
@@ -84,6 +85,20 @@ server.get("/api/qbittorrent/status", async (request, reply) => {
     server.log.error(error);
     reply.code(500).send({
       error: "无法获取 qBittorrent 状态",
+      detail: error instanceof Error ? error.message : String(error),
+    });
+  }
+});
+
+// New System Status API
+server.get("/api/system/status", async (_, reply) => {
+  try {
+    const status = await getSystemStatus();
+    reply.send(status);
+  } catch (error) {
+    server.log.error(error);
+    reply.code(500).send({
+      error: "无法获取系统状态",
       detail: error instanceof Error ? error.message : String(error),
     });
   }

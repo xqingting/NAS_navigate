@@ -50,3 +50,28 @@ export interface QBittorrentStatus {
   error?: string;
 }
 
+// --- System Monitor Types (mirrored from server/types.ts) ---
+export interface DiskUsage {
+  fs: string;
+  mount: string;
+  type: string;
+  size: number;
+  used: number;
+  use: number; // percentage
+}
+
+export interface SystemStatus {
+  cpu: {
+    currentLoad: number; // percentage
+    temperature?: number;
+  };
+  mem: {
+    total: number;
+    used: number;
+    active: number;
+    available: number;
+  };
+  fs: DiskUsage[];
+  error?: string;
+}
+

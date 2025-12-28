@@ -36,6 +36,7 @@
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "systeminformation": "^5.27.11",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -43,6 +44,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@types/systeminformation": "^3.23.1",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",

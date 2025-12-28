@@ -1,25 +1,19 @@
-# NAS 导航页面配置（services.yaml）
-# 缩进统一使用 2 个空格
-
 - NAS 面板 & 管理:
     - CasaOS:
-        href: http://192.168.6.192/#/ 
+        href: http://192.168.6.192/#/
         description: NAS 主面板（CasaOS）
         icon: casaos
         siteMonitor: http://192.168.6.192
-
     - 1Panel:
         href: http://192.168.6.192:10086/entrance
         description: Linux 服务器管理面板
         icon: 1panel
         siteMonitor: http://192.168.6.192:10086
-
     - Home Assistant:
         href: http://192.168.6.192:8123/lovelace
         description: 智能家居中控（Home Assistant）
         icon: home-assistant
         siteMonitor: http://192.168.6.192:8123
-
 - 下载 & 同步:
     - qBittorrent:
         href: http://192.168.6.192:8181
@@ -27,66 +21,84 @@
         icon: qbittorrent
         siteMonitor: http://192.168.6.192:8181
         type: qbittorrent
-
     - 夸克自动保存:
         href: http://192.168.6.192:5005
         description: 夸克网盘自动转存
         icon: quark
         siteMonitor: http://192.168.6.192:5005
-
     - iCloud 相册同步:
         href: http://192.168.6.192:8090
         description: iCloud 相册同步（icloudpd）
         icon: icloud
         siteMonitor: http://192.168.6.192:8090
-
+    - Rclone:
+        href: https://192.168.6.192:5572/
+        description: 云存储挂载与同步管理
+        icon: rclone
+        siteMonitor: https://192.168.6.192:5572/
+    - CloudSaver:
+        href: http://192.168.6.192:8008
+        description: 云盘转存
+        icon: cloud-saver
+        siteMonitor: http://192.168.6.192:8008
 - 影音 & 阅读:
     - Emby:
         href: http://192.168.6.192:8096
         description: 影音媒体库（Emby）
         icon: emby
         siteMonitor: http://192.168.6.192:8096
-
     - Komga:
         href: http://192.168.6.192:25600
         description: 漫画 / 书籍管理（Komga）
         icon: komga
         siteMonitor: http://192.168.6.192:25600
-
+    - MakeMKV:
+        href: http://192.168.6.192:5800
+        description: 蓝光/DVD 翻录工具
+        icon: makemkv
+        siteMonitor: http://192.168.6.192:5800
 - 自动化 & 任务:
     - AutoBangumi:
         href: http://192.168.6.192:17892
         description: 番剧自动追更下载（AutoBangumi）
         icon: autobangumi
         siteMonitor: http://192.168.6.192:17892
-
     - 青龙面板:
         href: http://192.168.6.192:5700
         description: 定时任务 / JD 等脚本管理（Qinglong）
         icon: qinglong
         siteMonitor: http://192.168.6.192:5700
-
     - QD 签到:
         href: http://192.168.6.192:16007
         description: 各站点自动签到（QD）
         icon: qd
         siteMonitor: http://192.168.6.192:16007
-
-    # douban-backup-service 当前未暴露端口，属于纯后台任务，这里不做导航入口
-
+    - MoviePilot:
+        href: http://192.168.6.192:3003
+        description: NAS 媒体库自动化管理
+        icon: moviepilot
+        siteMonitor: http://192.168.6.192:3003
+    - 闲鱼监控:
+        href: http://192.168.6.192:8000
+        description: 二手商品监控与通知
+        icon: xianyu
+        siteMonitor: http://192.168.6.192:8000
 - 工具 & 其它:
     - ASF:
         href: http://192.168.6.192:1242
         description: Steam 挂卡 / ASF 面板
         icon: asf
         siteMonitor: http://192.168.6.192:1242
-
     - OpenList:
         href: http://192.168.6.192:5244
         description: 文件索引 / 网盘（OpenList）
         icon: openlist
         siteMonitor: http://192.168.6.192:5244
-
+    - 云朵备份:
+        href: http://192.168.6.192:9527/
+        description: 微信聊天记录备份
+        siteMonitor: http://192.168.6.192:9527/
+        icon: cloud
 - 网络 & 代理:
     - Mihomo:
         href: http://192.168.6.192:9090/ui/#/proxies

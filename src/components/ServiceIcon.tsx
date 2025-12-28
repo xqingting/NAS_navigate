@@ -22,7 +22,8 @@ import {
   Radio,
   CalendarCheck,
   Router,
-  Gamepad2
+  Gamepad2,
+  ShoppingBag
 } from "lucide-react";
 import { cn } from "../lib/utils";
 
@@ -44,12 +45,16 @@ const iconMapping: Record<string, IconConfig> = {
   "thunder": { component: Zap, color: "text-yellow-400" },
   "quark": { component: Cloud, color: "text-purple-400" },
   "icloud": { component: Cloud, color: "text-sky-300" },
+  "rclone": { component: HardDrive, color: "text-sky-400" },
+  "cloud-saver": { component: Download, color: "text-teal-400" },
   
   // 影音
   "emby": { component: Play, color: "text-green-400" },
   "komga": { component: BookOpen, color: "text-orange-400" },
   "plex": { component: Play, color: "text-amber-500" },
   "jellyfin": { component: Play, color: "text-purple-500" },
+  "moviepilot": { component: Radio, color: "text-emerald-500" },
+  "makemkv": { component: Play, color: "text-orange-500" },
   
   // 自动化
   "anime": { component: Radio, color: "text-pink-400" },
@@ -57,6 +62,7 @@ const iconMapping: Record<string, IconConfig> = {
   "qinglong": { component: Terminal, color: "text-slate-300" },
   "bookmark": { component: CalendarCheck, color: "text-red-400" },
   "qd": { component: CalendarCheck, color: "text-red-400" },
+  "xianyu": { component: ShoppingBag, color: "text-yellow-400" },
   
   // 工具
   "steam": { component: Gamepad2, color: "text-indigo-400" },

@@ -36,7 +36,7 @@ const normalizeService = (value: unknown): ServiceItem | null => {
   const icon = typeof details.icon === "string" ? details.icon : undefined;
   const siteMonitor =
     typeof details.siteMonitor === "string" ? details.siteMonitor : undefined;
-  const type = typeof details.type === "string" ? details.type : undefined; // Allow service type
+  const type = typeof details.type === "string" ? (details.type as "qbittorrent") : undefined; // Allow service type
 
   return {
     name: name.trim(),

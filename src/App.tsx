@@ -6,6 +6,7 @@ import { HealthState, ServiceCategory, ServiceItem } from "./types";
 import { Header } from "./components/Header";
 import { DashboardView } from "./views/DashboardView";
 import { BubbleView } from "./views/BubbleView";
+import { SystemMonitor } from "./components/SystemMonitor";
 import { SpotlightCursor } from "./components/ui/SpotlightCursor";
 import { useServiceStats } from "./hooks/useServiceStats";
 import { cn } from "./lib/utils";
@@ -108,6 +109,8 @@ function App() {
             ))}
           </div>
         </div>
+
+        <SystemMonitor />
 
         <div className="mt-8 relative z-10">
           {viewMode === "dashboard" ? (

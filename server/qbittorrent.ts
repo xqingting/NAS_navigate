@@ -5,9 +5,7 @@ const QB_TIMEOUT = Number(process.env.QB_TIMEOUT_MS) || 5000;
 const QB_USERNAME = process.env.QB_USERNAME || "admin"; // Default or from env
 const QB_PASSWORD = process.env.QB_PASSWORD || "admin"; // Default or from env
 
-interface LoginResponse {
-  rid: string; // response id
-}
+
 
 /**
  * Attempts to log in to qBittorrent Web UI and retrieves a session ID.
@@ -18,7 +16,7 @@ interface LoginResponse {
  */
 async function login(baseUrl: string, username: string, password_str: string): Promise<string | null> {
   try {
-    const response = await axios.post<LoginResponse>(
+    const response = await axios.post(
       `${baseUrl}/api/v2/auth/login`,
       new URLSearchParams({ username, password: password_str }).toString(), // Form-urlencoded data
       {

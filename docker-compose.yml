@@ -1,0 +1,20 @@
+services:
+  nas-nav:
+    container_name: nas-nav
+    build: .
+    image: nas-nav:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # 映射配置文件，方便在宿主机修改
+      - ./config/services.yaml:/app/config/services.yaml
+      # 挂载宿主机系统目录，用于系统监控 (CPU/内存/温度)
+      - /proc:/proc:host
+      - /sys:/sys:host
+      # 可选：挂载宿主机根目录以便统计磁盘 (视具体需求开启，可能会涉及权限)
+      # - /:/host:ro
+    environment:
+      - QB_USERNAME=admin
+      - QB_PASSWORD=qingting
+      - TZ=Asia/Shanghai
